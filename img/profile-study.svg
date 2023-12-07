@@ -1,0 +1,42 @@
+<svg id="グループ_2" data-name="グループ 2" xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1, .cls-4, .cls-5 {
+        fill: #bf976b;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #94662f;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-6 {
+        stroke-width: 3px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #bf976b;
+      }
+
+      .cls-5, .cls-6 {
+        fill-rule: evenodd;
+      }
+
+      .cls-6 {
+        fill: #94662f;
+        stroke: #fff;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <rect id="長方形_2" data-name="長方形 2" class="cls-1" x="80" y="46" width="257" height="325" rx="30" ry="30"/>
+  <rect id="長方形_2_のコピー" data-name="長方形 2 のコピー" class="cls-2" x="72" y="38" width="257" height="325" rx="30" ry="30"/>
+  <rect id="長方形_3" data-name="長方形 3" class="cls-3" x="109" y="81" width="181" height="38" rx="1" ry="1"/>
+  <rect id="長方形_4" data-name="長方形 4" class="cls-4" x="212" y="199" width="73" height="73" rx="1" ry="1"/>
+  <rect id="長方形_4_のコピー" data-name="長方形 4 のコピー" class="cls-4" x="116" y="181" width="73" height="73" rx="36" ry="36"/>
+  <path id="三角形_1" data-name="三角形 1" class="cls-5" d="M188.5,257l37.688,65.25H150.812Z"/>
+  <path id="キラキラ_1" data-name="キラキラ 1" class="cls-6" d="M80.021,128.011A62.612,62.612,0,0,0,22.01,70.026,62.607,62.607,0,0,0,80.019,12.016,62.612,62.612,0,0,0,138,70.027,62.609,62.609,0,0,0,80.021,128.011ZM275.4,382.006a33.052,33.052,0,0,0-30.623-30.61A33.05,33.05,0,0,0,275.4,320.774a33.052,33.052,0,0,0,30.61,30.623A33.051,33.051,0,0,0,275.4,382.006Zm52.612-34a46.43,46.43,0,0,0-43.019-43,46.427,46.427,0,0,0,43.017-43.019,46.432,46.432,0,0,0,43,43.02A46.431,46.431,0,0,0,328.009,348.008Z"/>
+</svg>

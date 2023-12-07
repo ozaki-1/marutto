@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <!-- リセットCSSの読み込み -->
+    <link rel="stylesheet" href="css/ress.css">
+    <!-- 自前CSSの読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- フォントの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+    <!-- ファビコン設定用記述 -->
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+
+<body id="body">
+    <div class="wrap">
+        <header class="header">
+            <div class="header-wrap">
+                <div id="logo" class="page-link logo-wrap">
+                    <a href="#body"><img src="img/logo.svg" alt="ロゴ" class="logo"></a>
+                </div>
+                <div class="openbtn1"><span></span><span></span><span></span></div>
+                <nav id="g-nav" class="g-nav">
+                    <ul>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skill">Skill</a></li>
+                        <li><a href="index.html#profile">Profile</a></li>
+                        <li><a href="index.html#works">Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <nav class="h-nav-pc">
+                    <ul class="page-link">
+                        <li><a href="index.html#about" class="nav-hover">About</a></li>
+                        <li><a href="index.html#skill" class="nav-hover">Skill</a></li>
+                        <li><a href="index.html#profile" class="nav-hover">Profile</a></li>
+                        <li><a href="index.html#works" class="nav-hover">Works</a></li>
+                        <li><a href="#contact" class="nav-hover">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+            <section id="contact" class="contact">
+                <div class="contact-box">
+                    <h2>Contact</h2>
+                    <form class="contact-form">
+                        <input name="name" type="text" class="feedback-input" placeholder="お名前">
+                        <input name="email" type="text" class="feedback-input" placeholder="メールアドレス">
+                        <textarea name="text" class="feedback-input" placeholder="お問い合わせ内容を入力してください。"></textarea>
+                        <input type="submit" value="送信">
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-wrap">
+                <nav class="f-nav">
+                    <ul class="page-link">
+                        <li><a href="index.html#about" class="nav-hover">About</a></li>
+                        <li><a href="index.html#skill" class="nav-hover">Skill</a></li>
+                        <li><a href="index.html#profile" class="nav-hover">Profile</a></li>
+                        <li><a href="index.html#works" class="nav-hover">Works</a></li>
+                        <li><a href="#contact" class="nav-hover">Contact</a></li>
+                    </ul>
+                </nav>
+                <small>
+                    Ozaki Sae©
+                </small>
+            </div>
+        </footer>
+    </div>
+    <!-- jクエリの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- slickの読み込み -->
+    <script src="js/slick.min.js"></script>
+    <!-- 自前javascriptの読み込み -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>

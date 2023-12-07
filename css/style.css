@@ -1,0 +1,1005 @@
+@charset "utf-8";
+
+/* ----------全体設定---------- */
+html {
+    max-width: 1600px;
+    font-family: 'Zen Maru Gothic', serif;
+    text-align: center;
+    color: #94662F;
+    max-width: 100%;
+}
+
+section {
+    padding: 50px 0;
+}
+
+/* ----------各位でのフェードイン用記述---------- */
+.fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定 */
+.fadeUpTrigger {
+    opacity: 0;
+}
+
+/* ----------ロゴ関連---------- */
+.logo-wrap {
+    z-index: 10000;
+    /* 最前面にする */
+    position: relative;
+}
+
+.logo {
+    /* サイズと位置指定 */
+    width: 65px;
+    height: 65px;
+    position: fixed;
+    left: 2%;
+    top: 1%;
+}
+
+.logo:hover {
+    transform: scale(1.2, 1.2);
+    transition: 0.5s;
+}
+
+/* ----------基本背景色---------- */
+body {
+    background-color: #FFF;
+}
+
+/* ----------ここからナビゲーション部分のホバー---------- */
+.nav-hover {
+    position: relative;
+}
+
+.nav-hover::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #94662F;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-hover:hover {
+    cursor: pointer;
+}
+
+.nav-hover:hover::after {
+    width: 100%;
+}
+
+/* ----------ここまでナビゲーション部分のホバー---------- */
+
+/* ----------ヘッダー---------- */
+.header {
+    background-color: #FFF9D7;
+}
+
+.header-wrap {
+    width: 100%;
+    height: 100px;
+    border-radius: 0 0 100% 100%;
+    background-color: white;
+}
+
+/* ----------ここからハンバーガーメニュー---------- */
+.wrap {
+    overflow: hidden;
+}
+
+.g-nav {
+    /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    /*はじめは透過0*/
+    /*ナビの位置と形状*/
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    /*ナビの高さ*/
+    background: #e7d25b;
+    /*動き*/
+    transition: all 0.5s;
+}
+
+/*アクティブクラスがついたら出現アニメーション*/
+.g-nav.panelactive {
+    opacity: 1;
+    z-index: 999;
+    display: block;
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: scaleY(0);
+    background-color: #e7d25b;
+    /*伸びる背景色の設定*/
+    animation-name: PageAnime;
+    animation-duration: 0.8s;
+    /* animation-timing-function: ease-in-out; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes PageAnime {
+    0% {
+        transform-origin: top;
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform-origin: top;
+        transform: scaleY(1);
+    }
+}
+
+/*アクティブクラスがついたら透過なしにして最前面へ*/
+/* .g-nav.panelactive {
+    opacity: 1;
+    z-index: 999;
+} */
+
+/*ナビゲーション*/
+.g-nav ul {
+    display: none;
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.g-nav.panelactive ul {
+    display: block;
+}
+
+/*リストのレイアウト設定*/
+
+.g-nav li {
+    list-style: none;
+    text-align: center;
+    line-height: 4em;
+}
+
+.g-nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    /* text-transform: uppercase; */
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1 {
+    position: fixed;
+    z-index: 9999;
+    /*ボタンを最前面に*/
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+/*×に変化*/
+.openbtn1 span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #94662F;
+    width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+    top: 15px;
+}
+
+.openbtn1 span:nth-of-type(2) {
+    top: 23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+    top: 31px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+/* ここまでハンバーガーメニュー */
+
+
+
+/* ----------ここからpc用ナビゲーション---------- */
+.h-nav-pc ul {
+    display: none;
+}
+
+@media screen and (min-width:640px) {
+    .openbtn1 {
+        /* ハンバーガーメニューの見た目を消す */
+        display: none;
+    }
+
+    .g-nav {
+        /* ハンバーガーメニューの中身を消す */
+        display: none;
+    }
+
+    .h-nav-pc {
+        /* ナビゲーションを表示する */
+        background-color: #fff;
+        height: 100px;
+    }
+
+    .h-nav-pc ul {
+        list-style: none;
+        font-size: 17px;
+        display: flex;
+        margin: 0 auto;
+        width: fit-content;
+        padding-top: 40px;
+    }
+
+    .h-nav-pc li a {
+        margin: 0 40px;
+        color: #94662F;
+        text-decoration: none;
+        z-index: 50000;
+    }
+}
+
+/* ここまでpc用ナビゲーション */
+
+/* ----------キービジュアルの設定---------- */
+.kv-wrap {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    animation-name: fade;
+    animation-duration: 3s;
+    margin-bottom: -60px;
+}
+
+.kv-p {
+    font-weight: bold;
+    font-size: 25px;
+    writing-mode: vertical-rl;
+    position: absolute;
+    left: 20%;
+    top: 15%;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.kv img {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 35%;
+}
+
+@media screen and (min-width:640px) {
+    .kv-wrap {
+        height: 420px;
+        margin-bottom: 60px;
+        margin-top: -60px;
+    }
+
+    .kv-p {
+        font-weight: bold;
+        font-size: 37px;
+        width: 300px;
+        writing-mode: horizontal-tb;
+        position: absolute;
+        left: 20%;
+        margin-top: 150px;
+    }
+
+    .kv img {
+        width: 40%;
+        position: absolute;
+        left: 30%;
+        bottom: -60%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+
+    .kv-p {
+        font-weight: bold;
+        font-size: 40px;
+        width: 350px;
+        writing-mode: horizontal-tb;
+        position: absolute;
+        left: 20%;
+        top: 15%;
+    }
+
+    .kv img {
+        width: 25%;
+        position: absolute;
+        left: 35%;
+        top: 0;
+        transform: translateY(-68%);
+    }
+}
+
+/* ----------大見出しの設定---------- */
+h2 {
+    width: 100%;
+    font-size: 35px;
+    padding: 80px 0 80px 0;
+    letter-spacing: 0.1em;
+}
+
+h2 span {
+    max-width: 89%;
+    font-size: 13px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----------小見出しの設定---------- */
+h3 {
+    margin: 15px auto 15px auto;
+    line-height: 1em;
+}
+
+/* ----------About関連---------- */
+
+.about {
+    background: #FFF9D7;
+    border-radius: 2000px 2000px 0 0 / 300px 300px 0 0;
+    margin: 16px -200px 0 -200px;
+    padding: 65px 280px;
+    min-height: 300px;
+    /* text-align: center; */
+}
+
+@media screen and (min-width:640px) {
+    .about {
+        /* background: #E3F1F7; */
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        /* height: 200px; */
+        margin-left: -100px;
+        margin-right: -100px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+.about-box {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:640px) {
+    .about-box {
+        width: 55%;
+    }
+}
+
+.about-svg {
+    max-width: 300px;
+    /* width: 100%; */
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.about-svg:hover {
+    cursor: pointer;
+}
+
+.poyon {
+    animation: poyon 0.8s;
+}
+
+@keyframes poyon {
+    0% {
+        transform: scale(1.0, 1.0) translate(0%, 0%);
+    }
+
+    15% {
+        transform: scale(0.9, 0.9) translate(0%, 5%);
+    }
+
+    30% {
+        transform: scale(1.3, 0.8) translate(0%, 10%);
+    }
+
+    50% {
+        transform: scale(0.8, 1.3) translate(0%, -10%);
+    }
+
+    70% {
+        transform: scale(1.1, 0.9) translate(0%, 5%);
+    }
+
+    100% {
+        transform: scale(1.0, 1.0) translate(0%, 0%);
+    }
+}
+
+
+/* ----------Skill関連---------- */
+/* Skill背景 */
+.skill {
+    background: #FFF9D7;
+}
+
+.skill-wrap {
+    padding: 10px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Skillのボックスの設定 */
+.skill-box {
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 200px;
+    border: 2px solid #94662F;
+    border-radius: 20px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    /* position: relative; */
+}
+
+/* Skillのボックス大きい版(pc用) */
+@media screen and (min-width:1080px) {
+    .skill-wrap {
+        max-width: 60%;
+    }
+
+    .skill-box {
+        width: 31.6%;
+    }
+
+    .skill-box-big {
+        background-color: rgb(255, 255, 255);
+        width: 48%;
+        height: 330px;
+        border: 2px solid #94662F;
+        border-radius: 10px;
+        margin: 10px auto;
+        text-align: center;
+        /* position: relative; */
+    }
+
+    .skill-box-big .skill-img img {
+        width: 35%;
+        height: 35%;
+    }
+
+    .skill-box-big h3 {
+        font-size: 28px;
+        margin: 20px auto 30px auto;
+    }
+}
+
+
+/* Skillのボックス内のimg */
+.skill-img img {
+    width: 25%;
+    margin-top: 5%;
+
+}
+
+/* Skillのボックスのimg(二つ並んでる場合) */
+.skill-img-small img {
+    width: 21%;
+    margin-top: 5%;
+}
+
+/* Skillのボックスの中の文章 */
+.skill-box p {
+    width: 90%;
+    font-size: 14px;
+    position: absolute;
+    left: 48%;
+    transform: translateX(-50%);
+    bottom: 5%;
+    text-align: left;
+    margin: 8px;
+}
+
+/* pc用のSkill表示 */
+@media screen and (min-width:640px) {
+    .skill-wrap {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* ----------Profile関連---------- */
+/* Profile項目の最大横幅 */
+.profile {
+    background-color: #FFF9D7;
+}
+
+.profile-p-pc {
+    display: none;
+}
+
+/* Profileのボックスの設定 */
+.profile-box {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 2px solid #94662F;
+    border-radius: 100%;
+}
+
+.profile-box-item {
+    padding: 30px;
+}
+
+.profile-box-item p {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Profileのボックスの中のimg */
+.profile-box img {
+    width: 200px;
+}
+
+/* 経歴アコーディオン */
+.profile-career{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #FFF;
+    border: 2px solid #94662F;
+    border-radius: 20px;
+}
+@media screen and (min-width:640px){
+    .profile-career{
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 50px;
+        background-color: #FFF;
+        border: 2px solid #94662F;
+        border-radius: 20px;
+    }
+    .profile-career p{
+        line-height: 2em;
+    }
+}
+
+.profile-career h3::after{
+    content: "▼";
+}
+
+.profile-career p{
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* profileの全体的なpc対応 */
+@media screen and (min-width:640px) {
+    .profile-p-mobile {
+        /* flexのための設定 */
+        display: none;
+    }
+
+    .profile-box{
+        margin: 0 0;
+    }
+
+    .profile-p-pc {
+        /* flexのための設定 */
+        display: inline;
+    }
+
+    .profile-box-item p {
+        width: 400px;
+        margin: 0 10px;
+    }
+
+    .profile-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-box-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 65%;
+        margin: 0 auto;
+    }
+}
+
+
+/* ----------Works関連---------- */
+/* ここからWorksのスライダー */
+.slider {
+    max-width: 70%;
+    margin: 0 auto 50px auto;
+    display: inline-block;
+}
+
+.slider img {
+    width: 100%;
+    height: 30vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+@media screen and (min-width:640px) {
+    .slider img {
+        /* width: auto; */
+        height: 40vh;
+        border-radius: 10px;
+        object-fit: contain;
+    }
+}
+
+.slider img:hover {
+    cursor: pointer;
+}
+
+/* ドットインジケーターのスタイル設定 */
+.slick-dots li button:before {
+    margin-top: 30px;
+    content: '●';
+    font-size: 1rem;
+    color: #94662F;
+}
+
+/* 左矢印のスタイル設定 */
+.slick-prev:before {
+    content: "◀";
+    font-size: 30px;
+    color: #94662F;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 0.75;
+    color: #94662F;
+}
+
+.slick-prev {
+    left: -35px;
+}
+
+/* 右矢印のスタイルを設定 */
+.slick-next:before {
+    content: "▶";
+    font-size: 30px;
+    color: #94662F;
+}
+
+/* ここまでWorksのスライダー */
+
+
+/* バナー表示の関連 */
+.works-wrap{
+    margin-top: 50px;
+}
+
+.works {
+    background-color: #FFF9D7;
+}
+
+.works-box {
+    padding: 0 0 50px 0;
+    position: relative;
+}
+
+/* click表示 */
+.works-box-arrow::after {
+    position: absolute;
+    width: 80px;
+    content: "▶click!";
+    left: 68%;
+    top: -5px;
+    background: #FFF;
+    border: 1px solid #94662F;
+    border-radius: 20px;
+    color: #94662F;
+    text-decoration: none;
+}
+
+.works-box img {
+    width: 60%;
+    border: 1px solid #94662F;
+    border-radius: 20px;
+}
+
+.works-box p {
+    width: 280px;
+    font-size: 12px;
+    margin: 0 auto;
+    padding: 2px 10px 10px 0;
+}
+
+/* ----------Worksのポップアップ---------- */
+.close {
+    border-radius: 10px;
+    background-color: #94662F;
+    color: #FFF;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+.close:hover {
+    transition: 0.2s;
+    background-color: #ba894d;
+}
+
+.popup {
+    z-index: 10000;
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.content {
+    background: #fff;
+    padding: 30px;
+    width: 95%;
+    border-radius: 20px;
+}
+
+.content img {
+    max-width: 98%;
+    max-height: 60vh;
+}
+
+.content p+p{
+    text-align: left;
+}
+
+.content>p {
+    /* width: 70vw; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+@media screen and (min-width:1000px) {
+    .content img {
+        max-width: 80vw;
+        width: auto;
+        max-height: 60vh;
+    }
+    .content p {
+        width: 50vw;
+    }
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* worksの全体的なpc対応 */
+@media screen and (min-width:640px) {
+    .works-box-flex {
+        /* max-width: 57%; */
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 40px;
+        margin-top: 30px;
+    }
+
+    .works-box-arrow::after {
+        position: absolute;
+        width: 80px;
+        content: "→click!";
+        left: 73%;
+        top: -5px;
+        background: #FFF;
+        border: 1px solid #94662F;
+        border-radius: 20px;
+        color: #94662F;
+    }
+
+    .works-box img {
+        width: 80%;
+    }
+}
+
+/* バナーホバーのアニメーション */
+.works-box-arrow:hover::after,
+.works-box-img :hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    transition: all 0.6s ease 0s;
+}
+
+/* ----------Contactの基本設定---------- */
+.contact {
+    background-color: #FFF9D7;
+    padding: 80px 20px;
+    padding-bottom: 120px;
+}
+
+.contact-box {
+    margin: 0 auto;
+    width: 90%;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+    border: 1px solid #94662F;
+    border-radius: 20px;
+}
+
+@media screen and (min-width:640px) {
+    .contact-box {
+        width: 70%;
+    }
+}
+
+/* コンタクトフォーム設定 */
+.contact-form {
+    max-width: 420px;
+    width: 90%;
+    margin: 50px auto;
+}
+
+.feedback-input {
+    text-align: left;
+    color: #94662F;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border: 2px solid #94662F;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.feedback-input:focus {
+    border: 2px solid #94662F;
+}
+
+textarea {
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+[type="submit"] {
+    width: 100%;
+    background: #94662F;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+[type="submit"]:hover {
+    background: #cd9550;
+}
+
+/* ----------フッター---------- */
+footer {
+    background-color: #FFF9D7;
+}
+
+.footer-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 100% 100% 0 0;
+    background-color: #fff;
+}
+
+/* フッターのコピーライト */
+footer small {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+}
+
+/* フッターのナビゲーション */
+.f-nav ul {
+    list-style: none;
+    width: 80%;
+    font-size: 14px;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 70px;
+    width: fit-content;
+}
+
+.f-nav li a {
+    margin: 0 10px;
+    color: #94662F;
+    text-decoration: none;
+}
+
+@media screen and (min-width:640px) {
+    .f-nav ul {
+        font-size: 17px;
+        width: 60%;
+        display: flex;
+        margin: 0 auto;
+        width: fit-content
+    }
+
+    .f-nav li a {
+        margin: 0 40px;
+        color: #94662F;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,22 @@
+<svg id="グループ_1" data-name="グループ 1" xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #94662f;
+        stroke: #94662f;
+        stroke-linejoin: round;
+        stroke-width: 4px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="長方形_1" data-name="長方形 1" class="cls-1" x="28" y="78" width="344" height="244" rx="43" ry="43"/>
+  <path id="楕円形_1" data-name="楕円形 1" class="cls-2" d="M146.06,195.651c12.5,26.931,20.959,76.606,20.959,123.546H85.569c0-46.654,8.359-96,20.732-123.042A46.628,46.628,0,1,1,146.06,195.651Z"/>
+  <path id="_" data-name="■■■■■" class="cls-2" d="M194.076,155.046h24v-24h-24v24Zm31.248,0h24v-24h-24v24Zm31.248,0h24v-24h-24v24Zm31.248,0h24v-24h-24v24Zm31.248,0h24v-24h-24v24Z"/>
+  <path id="_2" data-name="■■■■■■■■■■" class="cls-2" d="M55.97,108.749v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Zm0,10.575v8h8v-8h-8Z"/>
+  <path id="_3" data-name="■■" class="cls-2" d="M195.076,242.046h64v-64h-64v64Zm82.168,0h64v-64h-64v64Z"/>
+</svg>
